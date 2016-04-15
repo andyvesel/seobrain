@@ -1,16 +1,13 @@
 require 'rubygems'
 require 'open-uri'
 require 'rubyXL'
+require_relative 'parser'
+require_relative 'book'
 
-file = File.open('config.txt', 'r')
-content = file.read
-url = open(content)
+parser = Parser.new
+parser.read_file
+parser.parse_positions
 
-url.each do |k|
-  k = k.scan(/\b\d{1,2}\b/)
-  p k
-end
+book = Book.new
+book.write_data
 
-workbook = RubyXL::Parser.parse('1.xlsx')
-worksheet = workbook.worksheets[0]
-puts worksheet[1][1]
