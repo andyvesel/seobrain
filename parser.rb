@@ -8,8 +8,7 @@ class Parser
 
   def parse_positions
     @page_data.each do |content|
-      @positions = content.scan(/\b\d{1,2}\b/)
-      p @positions
+    @@positions = content.scan(/\b\d{1,2}\b/)
     end
   end
 
