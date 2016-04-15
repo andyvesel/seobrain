@@ -1,4 +1,4 @@
-class Book
+class Book < Parser
 
   def initialize
     @book_data = RubyXL::Parser.parse('1.xlsx')
@@ -6,7 +6,9 @@ class Book
 
   def write_data
     sheet = @book_data.worksheets[0]
-    p sheet[1][2]
+    sheet.sheet_name = 'Cool New Name'
+    sheet[1][0].change_contents(@@positions[1])
+    @book_data.write
   end
 
 end
