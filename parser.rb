@@ -7,8 +7,11 @@ class Parser
   end
 
   def parse_positions
+    @page_data.class
     @page_data.each do |content|
-    @@positions = content.scan(/\b\d{1,2}\b/)
+      @@positions = content.scan(/\b\d{1,2}\b/)
+      x = JSON.parse(content)
+      puts x["positions"]
     end
   end
 
