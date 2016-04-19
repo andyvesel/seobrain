@@ -15,4 +15,4 @@ book = Book.new
 book.write_data
 
 mailer = Mailer.new
-mailer.connect
+mailer.mail
