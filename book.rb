@@ -5,9 +5,16 @@ class Book < Parser
   end
 
   def write_data
-    sheet = @book_data.worksheets[0]
-    # sheet[1][0].change_contents(@@positions[1])
-    @book_data.write
+    sheet = @book_data.worksheets[0].to_a
+    sheet.each do |s|
+      begin
+        puts s.cells[0].value
+      rescue
+        NoMethodError
+      end
+    end
+    # sheet[1][1].change_contents(@@positions[0])
+    # @book_data.write
   end
 
 end
