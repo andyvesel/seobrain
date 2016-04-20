@@ -11,7 +11,9 @@ class Parser
     @page_data.each do |content|
       @@positions = content.scan(/\b\d{1,2}\b/)
       x = JSON.parse(content)
-      puts x["positions"]
+      x['groups']['13686']['positions'].each do |position|
+        ap position
+      end
     end
   end
 
