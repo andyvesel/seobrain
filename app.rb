@@ -3,7 +3,6 @@ require 'open-uri'
 require 'rubyXL'
 require 'mail'
 require 'json'
-require 'awesome_print'
 
 require_relative 'parser'
 require_relative 'book'
