@@ -5,16 +5,21 @@ class Book < Parser
   end
 
   def write_data
+    
     sheet = @book_data.worksheets[0].to_a
-    sheet.each do |s|
-      begin
-        puts s.cells[0].value
-      rescue
-        NoMethodError
-      end
-    end
-    # sheet[1][1].change_contents(@@positions[0])
-    # @book_data.write
+    cells = []
+    p sheet([0][0]..[2][0])
+    # sheet.each do |row|
+      
+    #   # cells << row.cells[1] 
+    #   # puts cells
+      
+    #   row.cells.each do |cell|
+    #     p cell[]#.each {|c| p c.class}
+    #   end
+    #   # @book_data.write
+    # end
   end
 
 end
+# arr1.map.with_index {|x, index| index == 1 ? arr2[index] : arr1[index] }

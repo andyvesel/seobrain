@@ -1,20 +1,29 @@
 class Parser
+
+  def initialize
+    @@positions = []
+  end
   
   def read_file
     file = File.open('config.txt', 'r')
     url = file.read
-    @page_data = open(url)
+    @page_info = open(url)
   end
 
   def parse_positions
-    @page_data.class
-    @page_data.each do |content|
-      @@positions = content.scan(/\b\d{1,2}\b/)
+    
+    page_data = @page_info.to_a.compact
+    
+    page_data.each do |content|
+      
       x = JSON.parse(content)
-      x['groups']['13686']['positions'].each do |position|
-        ap position
+      
+      x['groups']['13686']['positions'].each do |arr|
+        hash = arr[1]
+        hash['yandex']["#{Time.now.strftime('%d%m%Y')}"]['position']
+        @@positions << hash['yandex']["#{Time.now.strftime('%d%m%Y')}"]['position']
       end
+  
     end
   end
-
 end
