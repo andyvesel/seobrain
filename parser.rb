@@ -20,10 +20,19 @@ class Parser
       
       x['groups']['13686']['positions'].each do |arr|
         hash = arr[1]
-        hash['yandex']["#{Time.now.strftime('%d%m%Y')}"]['position']
-        @@positions << hash['yandex']["#{Time.now.strftime('%d%m%Y')}"]['position']
+        pos = hash['yandex']["#{Time.now.strftime('%d%m%Y')}"]['position']
+        @@positions << pos
+      
       end
-  
+      
+      @@positions.map! { |el|
+        if(el == 1000)
+          "-"
+        else
+          el
+        end
+      }
+      p @@positions
     end
   end
 end
