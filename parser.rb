@@ -32,7 +32,6 @@ class Parser
           el
         end
       }
-      p @@positions
     end
   end
 end
