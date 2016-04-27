@@ -16,5 +16,5 @@ parser.parse_positions
 book = Book.new
 book.write_data
 
-# mailer = Mailer.new
-# mailer.mail
+mailer = Mailer.new
+mailer.mail
