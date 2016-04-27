@@ -5,9 +5,8 @@ class Book < Parser
   end
 
   def write_data
-
     sheet = @book_data.worksheets[0]
-
+    
     sheet.add_cell(1, 1, "#{@@positions[0]}")
     sheet.add_cell(2, 1, "#{@@positions[1]}")
     sheet.add_cell(3, 1, "#{@@positions[2]}")
@@ -32,9 +31,9 @@ class Book < Parser
     sheet.add_cell(22, 1, "#{@@positions[21]}")
     sheet.add_cell(23, 1, "#{@@positions[22]}")
 
+    sheet.change_column_font_name(1, 'Arial')
+    sheet.change_column_horizontal_alignment(1, 'center')
+
     @book_data.write
   end
-    
-    sheet.change_column_font_name(1, 'Arial')
-
 end
